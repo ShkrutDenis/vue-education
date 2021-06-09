@@ -1,11 +1,40 @@
 <template>
-  <!--TODO -->
+  <div :class="{field: true, winner: isWinner, active: isActive}" @click="fill">
+    {{ value }}
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Field',
-  // TODO
+  props: {
+    id: {
+      type: Number,
+      require: true
+    },
+    isWinner: {
+      type: Boolean,
+      require: false,
+      default: false
+    },
+    value: {
+      type: String,
+      require: false,
+      default: ''
+    }
+  },
+  computed: {
+    isActive() {
+      return !this.value
+    }
+  },
+  methods: {
+    fill() {
+      if (this.isActive) {
+        this.$emit('fill', this.id)
+      }
+    }
+  }
 }
 </script>
 
