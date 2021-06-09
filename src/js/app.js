@@ -1,7 +1,7 @@
 window.Vue = require('vue')
 
-Vue.component('field', require('./components/Field.vue').default)
-Vue.component('game', require('./components/Game.vue').default)
+Vue.component('list', require('./components/List.vue').default)
+// Vue.component('product', require('./components/Product.vue').default)
 
 const app = new Vue({
   el: '#app',
